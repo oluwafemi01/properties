@@ -1,0 +1,101 @@
+{% extends 'frontend/base.html' %}
+
+{% block title %}
+	{{title}}
+{% endblock %}
+
+
+{% block staticcss %}
+
+	<link href="/static/assets/css/ct-paper.css" rel="stylesheet"/>
+	<link href="/static/assets/css/examples.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="/static/css/landing-page.css" rel="stylesheet">
+    <style>
+        body{
+            
+             background:#000;
+        }
+    </style>
+    
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+
+{% endblock %}
+
+
+{% block nav %}
+	<nav class="navbar navbar-ct-transparent navbar-fixed-top" role="navigation-demo" id="register-navbar">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+              Properties
+          </a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navigation-example-2">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="/properties" class="btn btn-simple">Properties</a>
+            </li>
+            <li>
+                <a href="/properties/search" class="btn btn-simple">Search</a>
+            </li>
+            <li>
+                <a href="/account/logout" class="btn btn-simple">Logout</a>
+            </li>          
+           </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-->
+    </nav> 
+{% endblock %}
+
+
+{% block content %}
+	    <!-- Header -->
+    <a name="about"></a>
+    <div class="intro-header">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h2>Properties Listing Website</h2>
+                        <hr class="intro-divider">
+                        <ul class="list-inline intro-social-buttons">
+                            <li>
+                                <a href="/properties" class="btn btn-default btn-lg" title="View Properties"><i class="fa fa-list" aria-hidden="true"></i>  <span class="network-name">View Properties</span></a>
+                            </li>
+                            <li>
+                                <a href="/properties/add" class="btn btn-default btn-lg" title="Add Properties"> <span class="network-name"><i class="fa fa-plus" aria-hidden="true"></i> Add Properties</span> </a>
+                            </li>
+                            <li>
+                                <a href="/properties/search" class="btn btn-default btn-lg" title="Search Properties"> <span class="network-name"><i class="fa fa-search" aria-hidden="true"></i> Search Properties</span> </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+
+{% endblock %}
+
+
+{% block staticjs %}
+
+{% endblock%}

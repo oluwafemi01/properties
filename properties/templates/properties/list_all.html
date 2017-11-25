@@ -1,0 +1,114 @@
+{% extends 'frontend/base.html' %}
+
+{% block title %}
+	{{title}}
+{% endblock %}
+
+
+{% block staticcss %}
+
+	<link href="/static/assets/css/ct-paper.css" rel="stylesheet"/>
+	<link href="/static/assets/css/examples.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="/static/css/landing-page.css" rel="stylesheet">
+    <style>
+        body{
+            
+             background:#000;
+        }
+        .form-container{
+            background:#FFF;
+            border-radius:5px;
+        }
+        
+    </style>
+    
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+{% endblock %}
+
+
+{% block nav %}
+	<nav class="navbar navbar-ct-transparent navbar-fixed-top" role="navigation-demo" id="register-navbar">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example-2">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">
+              Properties
+          </a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navigation-example-2">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a href="/properties" class="btn btn-simple">Properties</a>
+            </li>
+            <li>
+                <a href="/properties/search" class="btn btn-simple">Search</a>
+            </li>
+          {% if request.user %}
+            
+            <li>
+                <a href="/account/logout" class="btn btn-simple">Logout</a>
+            </li>
+           {% else %}
+                <li>
+                    <a href="/" class="btn btn-simple">Home</a>
+                </li>
+                <li>
+                    <a href="/register" class="btn btn-simple">Register</a>
+                </li>
+           {% endif %}
+           </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-->
+    </nav> 
+{% endblock %}
+
+
+{% block content %}
+	<div class="container-fluid" style="margin-top:100px;">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1 form-container">
+                <div class="header">
+                    <div class="text-right"><br>
+                        <a href="/" class="text-left btn btn-default">Home</a>
+                    </div>{{properties}}  {{properties.title}}
+                    <h4 class="title">Property page</h4>
+                    <p class="category">list of properties</p>
+                </div>
+                <div class="row">
+                    {% if properties.count > 0 %}
+                        {% for property in properties %}
+                            <div class="col-md-4">
+                                <div><img src="{{property.image.url}}" style="width:300px"></div><br>
+                                <div><p class="text-center"><a href="/properties/{{property.id}}">{{property.title}}</a></p></div>
+                                <div><p class="text-center">Location : {{property.location}}</p></div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <p>No Properties listed yet</p>
+                    {% endif %}    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+
+
+{% block staticjs %}
+
+{% endblock%}
